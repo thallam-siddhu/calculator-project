@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculator Pro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main class="calculator">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="brand">
+            <div class="brand-icon">∑</div>
+            <div>
+                <h1>Calculator</h1>
+                <p>Professional Edition</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="history-toggle" class="icon-button"
+                    title="Calculation History">🕘</button>
+
+            <button id="scientific-toggle" class="icon-button"
+                    title="Scientific Functions">ƒx</button>
+
+            <button id="sound-toggle" class="icon-button"
+                    title="Sound">🔊</button>
+
+            <button id="theme-toggle" class="icon-button"
+                    title="Theme">☀️</button>
+
+        </div>
+
+    </header>
+
+    <!-- DISPLAY -->
+    <section class="display">
+
+        <div class="display-top">
+            <span id="mode-label">DEG</span>
+            <span id="memory-indicator"></span>
+        </div>
+
+        <div id="previous"></div>
+
+        <input type="text" id="result"
+               value="0" readonly>
+
+        <div id="status-message"></div>
+
+    </section>
+
+    <!-- SCIENTIFIC PANEL -->
+    <section id="scientific-panel" class="popup-panel" hidden>
+
+        <div class="panel-header">
+            <h3>Scientific Functions</h3>
+            <button class="close-panel" data-close="true">✕</button>
+        </div>
+
+        <div class="angle-row">
+            <span>Angle Mode</span>
+            <button id="angle-toggle" class="utility-button">DEG</button>
+        </div>
+
+        <div class="scientific-buttons">
+
+            <button data-insert="sin(">sin</button>
+            <button data-insert="cos(">cos</button>
+            <button data-insert="tan(">tan</button>
+            <button data-insert="sqrt(">√</button>
+            <button data-insert="log(">log</button>
+            <button data-insert="ln(">ln</button>
+
+            <button data-insert="asin(">sin⁻¹</button>
+            <button data-insert="acos(">cos⁻¹</button>
+            <button data-insert="atan(">tan⁻¹</button>
+            <button data-insert="abs(">abs</button>
+            <button data-insert="exp(">exp</button>
+            <button data-insert="!">x!</button>
+
+            <button data-insert="^2">x²</button>
+            <button data-insert="^">xʸ</button>
+            <button data-insert="pi">π</button>
+            <button data-insert="e">e</button>
+            <button data-insert="(">(</button>
+            <button data-insert=")">)</button>
+
+        </div>
+
+        <div class="memory-buttons">
+            <button data-action="memory-clear">MC</button>
+            <button data-action="memory-recall">MR</button>
+            <button data-action="memory-add">M+</button>
+            <button data-action="memory-subtract">M−</button>
+        </div>
+
+    </section>
+
+    <!-- HISTORY PANEL -->
+    <section id="history-panel" class="popup-panel" hidden>
+
+        <div class="panel-header">
+            <h3>Calculation History</h3>
+
+            <div>
+                <button id="clear-history" class="clear-history">
+                    Clear
+                </button>
+
+                <button class="close-panel" data-close="true">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+        <div id="history-list" class="history-list">
+
+            <div class="empty-history">
+                <span>🕘</span>
+                <p>No calculations yet</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NORMAL NUMBER PAD -->
+    <section class="buttons">
+
+        <button class="special" data-action="clear">AC</button>
+        <button class="special" data-action="delete">DEL</button>
+        <button class="special" data-insert="%">%</button>
+        <button class="operator" data-insert="/">÷</button>
+
+        <button data-insert="7">7</button>
+        <button data-insert="8">8</button>
+        <button data-insert="9">9</button>
+        <button class="operator" data-insert="*">×</button>
+
+        <button data-insert="4">4</button>
+        <button data-insert="5">5</button>
+        <button data-insert="6">6</button>
+        <button class="operator" data-insert="-">−</button>
+
+        <button data-insert="1">1</button>
+        <button data-insert="2">2</button>
+        <button data-insert="3">3</button>
+        <button class="operator" data-insert="+">+</button>
+
+        <button data-insert="00">00</button>
+        <button data-insert="0">0</button>
+        <button data-insert=".">.</button>
+        <button class="equal" data-action="calculate">=</button>
+
+    </section>
+
+    <footer class="footer">
+        <span>Calculator Pro</span>
+        <span>Made with ❤️</span>
+    </footer>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
